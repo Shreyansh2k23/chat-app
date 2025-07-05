@@ -25,7 +25,6 @@ Welcome to **ChatApp**, a real-time, full-stack chat application built with the 
 - **React Router**
 - **Zustand** (state management)
 - **Axios**
-- **Lenis** (for smooth scroll)
 - **Lucide Icons**
 
 ### Backend
@@ -44,4 +43,3 @@ Welcome to **ChatApp**, a real-time, full-stack chat application built with the 
 ```bash
 git clone https://github.com/your-username/chatapp.git
 cd chatapp
-
