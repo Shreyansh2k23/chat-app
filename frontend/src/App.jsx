@@ -4,18 +4,18 @@ import {Routes, Route, Navigate} from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
-import SettingPage from './pages/SettingPage'
+import SettingPage from './pages/SettingsPage'
 import ProfilePage from './pages/ProfilePage'
-import { useAuthStore } from './Store/useAuthStore'
+import { useAuthStore } from './store/useAuthStore'
 import {Loader} from 'lucide-react'
 import {Toaster} from "react-hot-toast"
-import { useThemeStore } from './Store/useThemeStore'
-
+import { useThemeStore } from './store/useThemeStore'
 
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
+
 
   console.log({ onlineUsers });
 
@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     
-    <div data-theme={theme}>
+    <div  data-theme={theme}>
       <Navbar/>
 
       <Routes>

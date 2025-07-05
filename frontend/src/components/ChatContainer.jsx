@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import ChatHeader from "./ChatHeader.jsx";
-import MessageInput from "./MessageInput";
+import MessageInput from "./MessageInput.jsx";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
