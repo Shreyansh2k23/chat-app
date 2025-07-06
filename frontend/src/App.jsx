@@ -6,10 +6,10 @@ import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
 import SettingPage from './pages/SettingsPage'
 import ProfilePage from './pages/ProfilePage'
-import { useAuthStore } from './store/useAuthStore'
+import { useAuthStore } from './Store/useAuthStore'
 import {Loader} from 'lucide-react'
 import {Toaster} from "react-hot-toast"
-import { useThemeStore } from './store/useThemeStore'
+import { useThemeStore } from './Store/useThemeStore'
 
 
 const App = () => {

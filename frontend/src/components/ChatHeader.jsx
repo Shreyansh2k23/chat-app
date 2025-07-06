@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { useChatStore } from "../Store/useChatStore";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../Store/useAuthStore";
 
 
 const ChatHeader = () => {
