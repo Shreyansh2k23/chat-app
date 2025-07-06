@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 app.use(cookieParser())
 app.use(
     cors({
-    origin:["http://localhost:5173", "https://chat-jgdpfxlll-shreyansh-gupta-s-projects.vercel.app/login"],
+    origin:["http://localhost:5173", "https://chat-jgdpfxlll-shreyansh-gupta-s-projects.vercel.app"],
     credentials : true,
 })
 )
