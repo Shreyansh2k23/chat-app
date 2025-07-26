@@ -24,7 +24,7 @@ const allowedOrigins = [
   "http://localhost:8000",
   "http://localhost:3000",
   "http://localhost:5000",
-   "https://chat-jgdpfxlll-shreyansh-gupta-s-projects.vercel.app", // Add production frontend URL
+  "https://chat-app-git-main-shreyansh-gupta-s-projects.vercel.app/"
 ];
 
 app.use((req, res, next) => {
