@@ -15,15 +15,12 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: [
-      // "http://localhost:5173", // local dev
-      "https://chat-jgqrk0nwj-shreyansh-gupta-s-projects.vercel.app" // vercel frontend
-    ],
-    credentials: true,
-  })
-);
+// ✅ Allow your Vercel frontend
+app.use(cors({
+  origin: "https://chat-app-rose-phi.vercel.app", // your frontend deployed URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
