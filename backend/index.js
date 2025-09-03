@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
 // ✅ Allow your Vercel frontend
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend deployed URL
+  origin: "https://chat-app-three-eosin.vercel.app", // your frontend deployed URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
