@@ -17,7 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173", // local dev
+      "https://chat-jgqrk0nwj-shreyansh-gupta-s-projects.vercel.app" // vercel frontend
+    ],
     credentials: true,
   })
 );
