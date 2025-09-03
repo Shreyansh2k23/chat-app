@@ -11,7 +11,11 @@ import { connectDB } from "./src/lib/db.js";
 dotenv.config();
 
 const PORT = process.env.PORT;
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
