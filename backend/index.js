@@ -8,54 +8,22 @@ import { app, server } from "./src/lib/socket.js";
 import authRoutes from "./src/routes/auth.route.js"
 import messageRoutes from "./src/routes/message.route.js"
 import { connectDB } from "./src/lib/db.js";
+dotenv.config();
 
-dotenv.config()
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-// app.use(express.json())
-app.use(express.json({ limit: "5mb" })); // or "10mb" if needed
-app.use(express.urlencoded({ extended: true, limit: "5mb" }));
-
-app.use(cookieParser())
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:8000",
-  "http://localhost:3000",
-  "http://localhost:5000",
-  "https://chat-app-git-main-shreyansh-gupta-s-projects.vercel.app/"
-];
-
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  console.log("Cookies:", req.cookies);
-  next();
-});
-
-
+app.use(express.json());
+app.use(cookieParser());
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        console.log("CORS blocked for origin:", origin);
-        // This will correctly block the request
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "http://localhost:5173",
     credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-
-app.use("/api/auth", authRoutes)
-app.use("/api/messages", messageRoutes)
-
-
+app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
@@ -65,7 +33,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-server.listen(PORT, () =>{
-    console.log("server is running on PORT:" + PORT);
-    connectDB()
+server.listen(PORT, () => {
+  console.log("server is running on PORT:" + PORT);
+  connectDB();
 });
