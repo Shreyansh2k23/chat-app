@@ -15,12 +15,24 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: process.env.VITE_FRONTEND_URL,
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.VITE_FRONTEND_URL,
+//     credentials: true,
+//   })
+// );
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:5174",
+    "https://chat-app-three-eosin.vercel.app",
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+app.options(/.*/, cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
